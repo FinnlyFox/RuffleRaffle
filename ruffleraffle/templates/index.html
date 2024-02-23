@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <h4>Ordered by (date):</h4>
+    <br>
+
+    <h1>My Raffles:</h1>
+    {% if raffles %}
+        {% for raffle in raffles %}
+            <div class="row justify-content-md-center">
+                <div class="col-md-6">
+                    <div class="card text-center mx-auto my-5">
+                        <p class="card-header">
+                            <span class="text-muted">Title:</span>
+                            <span class="h5" style="margin-left: 10px;">{{ raffle[2] }}</span>
+                        </p>
+                        <div class="card-body">
+                            <p class="card-text mt-3">{{ raffle[3] }}</p>
+                            <p class="text-muted">-------------------------------------------------------------------------------</p>
+
+                            <p class="card-text"></p>
+                                <span class="text-muted">This raffle ends on:</span>
+                                <span class="h6" style="margin-left: 10px;">{{ raffle[4] }}</span>
+                            </p>
+                            <p class="text-muted">-------------------------------------------------------------------------------</p>
+
+                            <p class="card-text"></p>
+                                <span class="text-muted">Created by:</span>
+                                <span class="h6" style="margin-left: 10px;">{{ username[0] }}</span>
+                            </p>
+                            <p class="text-muted">-------------------------------------------------------------------------------</p>
+
+                            <p class="card-text"></p>
+                                <span class="text-muted">Entries:</span>
+                                <span class="my-2 badge rounded-pill" style="background-color:rgb(95, 119, 255)">{{ raffle[5] }}</span>
+                            </p>
+                            <a href="{{ url_for('edit', raffle_id=raffle[0]) }}" class="btn btn-secondary">Edit</a>
+                            <a href="{{ url_for('view_raffle', raffle_id=raffle[0]) }}" class="btn btn-primary">View Entries</a>
+                            <a href="{{ url_for('delete', raffle_id=raffle[0]) }}" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this raffle?')">Delete</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="container">
+            <h4>You do not have any raffles active at this time.</h4>
+        </div>
+    {% endif %}
+{% endblock %}

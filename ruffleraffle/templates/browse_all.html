@@ -1,0 +1,123 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Browse Raffles
+{% endblock %}
+
+{% block main %}
+    <h4>Ordered by (participation) > (ownership) > (number of entries):</h4>
+    <br>
+
+    {% if raffles %}
+        {% for raffle in raffles %}
+            <h1>{{ loop.index }}</h1>
+            {% if session["user_id"] == raffle[8] %}
+                <div class="row justify-content-md-center">
+                    <div class="col-md-6">
+                        <div class="card text-center mx-auto my-5">
+                            <p class="card-header">
+                                <span class="text-muted">Title:</span>
+                                <span class="h5" style="margin-left: 10px;">{{ raffle[2] }}</span>
+                            </p>
+                            <div class="card-body">
+                                <p class="card-text mt-3">{{ raffle[3] }}</p>
+                                <p class="text-muted">-------------------------------------------------------------------------------</p>
+
+                                <p class="card-text"></p>
+                                    <span class="text-muted">This raffle ends on:</span>
+                                    <span class="h6" style="margin-left: 10px;">{{ raffle[4] }}</span>
+                                </p>
+                                <p class="text-muted">-------------------------------------------------------------------------------</p>
+
+                                <p class="card-text"></p>
+                                    <span class="text-muted">Created by:</span>
+                                    <span class="h6" style="margin-left: 10px;">{{ raffle[6] }}</span>
+                                </p>
+                                <p class="text-muted">-------------------------------------------------------------------------------</p>
+
+                                <p class="card-text"></p>
+                                    <span class="text-muted">Entries:</span>
+                                    <span class="my-2 badge rounded-pill" style="background-color:rgb(95, 119, 255)">{{ raffle[5] }}</span>
+                                </p>
+
+                                <a href="/view_entries" class="btn btn-success">Already entered (go to entries)</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% elif session["user_id"] == raffle[1] %}
+                <div class="row justify-content-md-center">
+                    <div class="col-md-6">
+                        <div class="card text-center mx-auto my-5">
+                            <p class="card-header">
+                                <span class="text-muted">Title:</span>
+                                <span class="h5" style="margin-left: 10px;">{{ raffle[2] }}</span>
+                            </p>
+                            <div class="card-body">
+                                <p class="card-text mt-3">{{ raffle[3] }}</p>
+                                <p class="text-muted">-------------------------------------------------------------------------------</p>
+
+                                <p class="card-text"></p>
+                                    <span class="text-muted">This raffle ends on:</span>
+                                    <span class="h6" style="margin-left: 10px;">{{ raffle[4] }}</span>
+                                </p>
+                                <p class="text-muted">-------------------------------------------------------------------------------</p>
+
+                                <p class="card-text"></p>
+                                    <span class="text-muted">Created by:</span>
+                                    <span class="h6" style="margin-left: 10px;">{{ raffle[6] }}</span>
+                                </p>
+                                <p class="text-muted">-------------------------------------------------------------------------------</p>
+
+                                <p class="card-text"></p>
+                                    <span class="text-muted">Entries:</span>
+                                    <span class="my-2 badge rounded-pill" style="background-color:rgb(95, 119, 255)">{{ raffle[5] }}</span>
+                                </p>
+
+                                <a href="/" class="btn btn-dark">Go to home page</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="row justify-content-md-center">
+                    <div class="col-md-6">
+                        <div class="card text-center mx-auto my-5">
+                            <p class="card-header">
+                                <span class="text-muted">Title:</span>
+                                <span class="h5" style="margin-left: 10px;">{{ raffle[2] }}</span>
+                            </p>
+                            <div class="card-body">
+                                <p class="card-text mt-3">{{ raffle[3] }}</p>
+                                <p class="text-muted">-------------------------------------------------------------------------------</p>
+
+                                <p class="card-text"></p>
+                                    <span class="text-muted">This raffle ends on:</span>
+                                    <span class="h6" style="margin-left: 10px;">{{ raffle[4] }}</span>
+                                </p>
+                                <p class="text-muted">-------------------------------------------------------------------------------</p>
+
+                                <p class="card-text"></p>
+                                    <span class="text-muted">Created by:</span>
+                                    <span class="h6" style="margin-left: 10px;">{{ raffle[6] }}</span>
+                                </p>
+                                <p class="text-muted">-------------------------------------------------------------------------------</p>
+
+                                <p class="card-text"></p>
+                                    <span class="text-muted">Entries:</span>
+                                    <span class="my-2 badge rounded-pill" style="background-color:rgb(95, 119, 255)">{{ raffle[5] }}</span>
+                                </p>
+
+                                <a href="{{ url_for('enter', raffle_id=raffle[0]) }}" class="btn btn-info">Enter raffle</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <div class="container">
+            <h4>There are no raffles currently in the database.</h4>
+        </div>
+    {% endif %}
+{% endblock %}

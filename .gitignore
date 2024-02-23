@@ -1,0 +1,16 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+
+# Logs
+*.log
+
+# Environment
+.env
+.venv
+myenv/
+
+# IDE files
+.vscode/
+
+# Database file
+*.db

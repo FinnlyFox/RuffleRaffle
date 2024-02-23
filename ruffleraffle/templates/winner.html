@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Winner
+{% endblock %}
+
+{% block main %}
+    <h1>Winner</h1>
+    <br>
+
+    <h3>Winner:</h3>
+    <div class="row justify-content-md-center">
+        <div class="col-md-6">
+            <div class="card text-center mx-auto my-3">
+
+                <p class="card-header">
+                    <span class="text-muted">Winner:</span>
+                    <span class="h5" style="margin-left: 10px;">{{ winner_info[0] }}</span>
+                </p>
+                <p class="card-header">
+                    <span class="text-muted">Contact them at:</span>
+                    <span class="h5" style="margin-left: 10px;">{{ winner_info[1] }}</span>
+                </p>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

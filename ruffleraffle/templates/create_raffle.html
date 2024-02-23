@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+    New Raffle
+{% endblock %}
+
+{% block main %}
+    <h1>Create A New Raffle</h1>
+    <br>
+
+<!--Common form-->
+    <form action="/new" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto" id="title" name="title" placeholder="Title of raffle" required style="width: 40%;" type="text">
+        </div>
+
+        <div class="mb-3">
+            <textarea autocomplete="off" autofocus class="form-control mx-auto" id="description" name="description" placeholder="Description - not required" rows="5" style="width: 40%;"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto" id="end_date" name="end_date" placeholder="Select When The Raffle Will End" required style="width: 40%;" type="date">
+        </div>
+
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+{% endblock %}

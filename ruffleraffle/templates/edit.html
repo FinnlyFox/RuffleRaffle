@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Edit Raffle
+{% endblock %}
+
+{% block main %}
+    <h1>Edit Raffle</h1>
+    <br>
+
+<!--Common form-->
+    <form action="/edit/{{ raffle[0] }}" method="post">
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto" id="edited_title" name="edited_title" placeholder="Title of raffle" required style="width: 40%;" type="text" value="{{ raffle[2] }}">
+        </div>
+
+        <div class="mb-3">
+            <textarea autocomplete="off" autofocus class="form-control mx-auto" id="edited_description" name="edited_description" placeholder="Description - not required" rows="5" style="width: 40%;">{{ raffle[3] }}</textarea>
+        </div>
+
+        <div class="mb-3">
+            <input autocomplete="off" autofocus class="form-control mx-auto" id="edited_end_date" name="edited_end_date" placeholder="Select When The Raffle Will End" required style="width: 40%;" type="date" value="{{ raffle[4] }}">
+        </div>
+
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+{% endblock %}

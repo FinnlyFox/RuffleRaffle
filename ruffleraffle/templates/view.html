@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block title %}
+    View
+{% endblock %}
+
+{% block main %}
+    <h1>View</h1>
+    <br>
+
+    <h3>Title: {{ raffle[2] }}</h3>
+    <div class="row justify-content-md-center">
+        <div class="col-md-6">
+            <div class="card text-center mx-auto my-5">
+                <p class="card-header">
+                    <span class="text-muted">End on:</span>
+                    <span class="h5" style="margin-left: 10px;">{{ raffle[4] }}</span>
+                </p>
+                <div class="card-body">
+                    <span class="text-muted">Description:</span>
+                    <p class="card-text my-4">{{ raffle[3] }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h4 class="card-text">Number of Entries:</p>
+        <span class="my-2 badge rounded-pill bg-info">{{ raffle[5] }}</span>
+    </h4>
+
+    <div class="container">
+        <h4>Randomly Select a winner from entries list!</h4>
+        <form class="my-3" action="{{ url_for('view_raffle', raffle_id=raffle[0]) }}" method="post">
+            <button class="btn btn-primary mt-3" type="submit">Select</button>
+        </form>
+    </div>
+
+    <div class="container my-4">
+        {% if entries %}
+            {% for entry in entries %}
+                <div class="row justify-content-md-center">
+                    <div class="col-md-6">
+                        <div class="card text-center mx-auto my-3">
+
+                            <p class="card-header">
+                                <span class="text-muted">Participant:</span>
+                                <span class="h5" style="margin-left: 10px;">{{ entry[4] }}</span>
+                            </p>
+                            <p class="card-header">
+                                <span class="text-muted">Email Address:</span>
+                                <span class="h5" style="margin-left: 10px;">{{ entry[3] }}</span>
+                            </p>
+
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+
+        {% else %}
+            <div class="container">
+                <h4>No entries currently.</h4>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

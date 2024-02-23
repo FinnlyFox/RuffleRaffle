@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Email
+{% endblock %}
+
+{% block main %}
+    <h1>New Email Address</h1>
+    <br>
+
+    {% if session["user_id"] == check_user_in_html[0] %}
+        <div class="row justify-content-md-center">
+
+            <div class="col-lg-3">
+                <div class="card text-center mx-auto my-5">
+                    <p class="card-header">
+                        <span class="h5" style="margin-left: 10px;">New Email Address:</span>
+                    </p>
+                    <div class="card-body">
+
+                        <form action="/new_email" method="post">
+                            <div class="mb-3">
+                                <input autocomplete="off" class="form-control mx-auto w-auto" id="new_email" name="new_email" placeholder="New Email" required type="email">
+                            </div>
+                            <div class="mb-3">
+                                <input class="form-control mx-auto w-auto" id="current_password" name="current_password" placeholder="Current Password" required type="password">
+                            </div>
+                            <button class="btn btn-info" type="submit">Submit</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    {% else %}
+        <div class="row justify-content-md-center">
+            <div class="col-md-6">
+                <div class="card text-center mx-auto my-5">
+                    <p class="card-header">
+                        <span class="text-muted">Error:</span>
+                        <span class="h5" style="margin-left: 10px;">You are not logged in correctly!</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+{% endblock %}
