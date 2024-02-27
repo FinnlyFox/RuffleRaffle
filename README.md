@@ -182,14 +182,21 @@ Make sure the user actually wants to delete there account or leave a raffle by p
 
 ## Installation
 
-This is a very basic guide and will be updated in the future, for now it's just this.
+Before we begin, I will assume a few things:
+ - you have VSC installed and set up.
 
-You will have to clone the repo, then run the "create_table.py" file and then run the app as you would any other Flask app.
+ - you have Flask downloaded via pip installs (if not use the requirments.txt file)
 
-This all assumes that you have the required pip installs set up and know how to use Flask.
-(If you know how to use a requirements.txt file. I do have that set up as well!)
+ - you have a github account
 
-I will make a detailed install later on, this is just so I can upload it now.
+ - you know how to use a CLI/Terminal
+
+---
+
+1. Clone the repository
+
+1. Open a new instance of VSC and open the Explorer (ctrl + shift + E) and press "Clone Repository"
+   Paste the link you cloned.
 
 ## Credits
 
