@@ -180,10 +180,14 @@ Make sure the user actually wants to delete there account or leave a raffle by p
 ### Participant
   - View raffles they are in
 
-## Installation
+## Installation Notes
 
 Before we begin, I will assume a few things:
+ - You have Python installed.
+
  - you have VSC installed and set up.
+
+ - You have Pip installed.
 
  - you have Flask downloaded via pip installs (if not use the requirments.txt file)
 
@@ -191,12 +195,64 @@ Before we begin, I will assume a few things:
 
  - you know how to use a CLI/Terminal
 
+## Bash commands (Start up server)
+#### (You can basically copy + paste these commands)
 ---
+1. Open a CMD/Powershell terminal
 
-1. Clone the repository
+   win + "cmd"
 
-1. Open a new instance of VSC and open the Explorer (ctrl + shift + E) and press "Clone Repository"
-   Paste the link you cloned.
+1. Change into your working directory
+
+   ```bash
+   cd to\path\of\your\choice
+
+1. Clone this GitHub repository to your local machine:
+
+   ```bash
+   git clone https://github.com/FinnlyFox/RuffleRaffle.git
+
+1. Change into the main project directory (The structure I created)
+
+   ```bash
+   cd RuffleRaffle
+
+1. (Optional but recommended) Set up a virtual environment
+
+   ```bash
+   python -m venv venv
+
+1. Activate the virtual environment
+
+   ```bash
+   venv\Scripts\activate
+
+1. Change into the flask project directory
+
+   ```bash
+   cd ruffleraffle
+
+1. Run the server on local host
+
+   Go to [http://127.0.0.1:5000/](http://127.0.0.1:5000/) to view the website.
+
+   ```bash
+   flask run
+## Bash commands (Shut down server)
+
+1. Change directories back to the main directory
+
+   ```bash
+   ctrl + c
+
+1. Deactivate the virtual environment
+
+   ```bash
+   venv\Scripts\deactivate
+
+1. Close the CMD/Powershell terminal.
+
+1. Good Bye!
 
 ## Credits
 
